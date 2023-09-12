@@ -1,0 +1,38 @@
+  body {
+    background-image: url("homeflower.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Add any additional styling for your header here */
+  header {
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 40px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #b81515;
+  }
+
+  .left-image {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    width: 180px; /* Adjust the width as needed */
+    height: auto;
+  }
+  
