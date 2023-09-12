@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Financial support by:</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("#datepicker").datepicker({
+             format: "yyyy",
+             viewMode: "years", 
+             minViewMode: "years",
+             autoclose:true
+          });   
+        })
+    </script>
+    <div class="img-fluid">
+        <img src="p1.png" style="width:100%;background-color: #034568;">
+</div>
+
+</head>
+<body>
+
+<nav class="navbar  bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Teacher Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="test.php">Personal Information Form</a></li>
+                            <li><a class="dropdown-item" href="Office.php">Faculty EnrollMent Form</a></li>
+                            <li><a class="dropdown-item" href="Projectfelloship.php">Research Project Fellowship Information</a></li>
+                            <li><a class="dropdown-item" href="Projectmoney.php">Research Project Money Information</a></li>
+                            <li><a class="dropdown-item" href="ProjectReaserchInfo.php">Research Project Information</a></li>
+                            <li><a class="dropdown-item" href="ResearchDetails.php"> Research Details</a></li>
+
+                            <li><a class="dropdown-item" href="display.php">Show Data</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" method="Post" action="logout.php">
+                <label  class="btn btn-outline-info rounded-pill mx-4"  title="Login Profile">Username: <?php  session_start(); 
+                   $myusername=$_SESSION['login_user']; echo $myusername ;?></label>
+                    <input type="submit" value="Logout" class="btn btn-outline-danger">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid border border-info-subtle my-4">
+		<h1>Financial support by:</h1>
+		<form class="row g-3 my-3">
+
+            <!-- <div class="col-md-4">
+              <label class="form-label">Awarding Agency : <label style="color: red;">*</label></label>
+              <input id="AwardingAgency" type="text" class="form-control" name="awardingAgency" onkeyup="validateAgency()" required>
+              <span id="AwardingAgencyError" style="display:none;color:red;">Please Enter a Valid Agency Name.</span>
+            </div> -->
+
+            <div class="col-md-4">
+                <label class="form-label" for="reason">Financial support by:</label>
+                <select id="reason" name="reason" class="form-control">
+                <option value="" disabled selected hidden>Select one</option>
+                <option value="Individual teachers">Individual teachers</option>
+                <option value="NGO">NGO</option>
+                <option value="Industry">Industry</option>
+                <option value="Philanthropist">Philanthropist</option>
+                <option value="Alumni Dists.">Alumni Dists.</option>
+                <option value="other">Other</option>
+                </select>
+                <div id="other-reason" style="display:none;">
+                <textarea id="other-reason-text" name="other-reason-text" cols="56" rows="1" style="margin-top: 10px
+                ;"></textarea>
+                </div>
+
+                <script>
+                document.getElementById('reason').addEventListener('change', function() {
+                    if (this.value === 'other') {
+                    document.getElementById('other-reason').style.display = 'block';
+                    } else {
+                    document.getElementById('other-reason').style.display = 'none';
+                    }
+                });
+                </script>
+            </div>
+      
+            <div class="col-md-8">
+                <label class="col-form-label pt-0">Provided any financial support to any student? <label style="color: red;">*</label></label><br>
+                <input type="radio" name="yesno" value="yes" onclick="showTextArea()"> Yes <br>
+                <input type="radio" name="yesno" value="no" onclick="hideTextArea()"> No   <br>           
+                <div id="anotherForm" style="display:none;" class="">
+                    <div class="col-md-3">
+                        <label for="Amount">Amount :</label>
+                        <input type="number" id="Amount">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="Student name">Student name :</label>
+                        <input type="text" id="Student name"><br>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Class">Class:</label>
+                        <input type="text" id="Class">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Roll no">Roll no:</label>
+                        <input type="number" id="Roll no"><br>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Purpose">Purpose:</label>
+                        <input type="text" id="Purpose"><br>
+                    </div>
+
+                    <label for="sanction-name">Document: <label style="color: red;">* (.pdf only)</label></label>
+                    <input id="document" type="file" class="form-control" name="document"  accept=".pdf" onchange="validateSanction()" required>
+                    <span id="documentError" name ="document" style="color:red;"></span><br>
+                    <label for="sanction-name">Photo: <label style="color: red;">* (.pdf only)</label></label>
+                    <input id="document" type="file" class="form-control" name="document"  accept=".pdf" onchange="validateSanction()" required>
+                    <span id="documentError" name ="document" style="color:red;"></span><br>
+                    <label for="sanction-name">Upload Sanction Letter: <label style="color: red;">* (.pdf only)</label></label>
+                    <input id="document" type="file" class="form-control" name="document"  accept=".pdf" onchange="validateSanction()" required>
+                    <span id="documentError" name ="document" style="color:red;"></span><br>
+                    <button type="submit" class="btn btn-primary">Add more</button>
+                </div>
+                
+                <script>
+                    function showTextArea() {
+                        document.getElementById("anotherForm").style.display = "block";
+                    }
+                    
+                    function hideTextArea() {
+                        document.getElementById("anotherForm").style.display = "none";
+                    }
+                </script>
+            </div>
+    
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+    </form>
+	</div>
+  <script src="js/Projectfelloship.js"></script>
+
+</body>
+</html>
