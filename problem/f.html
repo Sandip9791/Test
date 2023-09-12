@@ -1,0 +1,157 @@
+<?= $this->extend('Layouts/base');?>
+
+<?= $this->section("Content");?>
+
+  <div class="container-fluid border border-info-subtle my-4">
+    <h1>Fellowship/Financial Support :</h1>
+    <form class="row g-3 my-3" method="POST" action="<?= base_url('saveProjectFollowship')?>" enctype="multipart/form-data">
+
+        <div class="col-md-4">
+            <label class="form-label">Awarding Agency : <label style="color: red;">*</label></label>
+            <input id="AwardingAgency" type="text" class="form-control" name="awardingAgency" onkeypress="return validateAgency(event)" required>
+            <span id="AwardingAgencyError" style="display:none;color:red;">Please Enter a Valid Agency Name.</span>
+          </div>
+        
+      <div class="col-md-4">
+  <label class="form-label">Year Of Award: <label style="color: red;">*</label></label>
+  <input id="YearOfAward" type="text" class="form-control" name="YearOfAward" onkeyup="validateAwardYear()" required>
+  <span id="AwardingYearError" style="display:none;color:red;">Please enter a valid year.</span>
+</div>
+
+      <div class="col-md-4">
+        <label class="form-label">Name Of Award/Fellowship : <label style="color: red;">*</label></label>
+        <input type="text" class="form-control" id="Awardname" name="AwardName" placeholder="Enter Agency Name"
+          onkeyup="validateAwardName()" required>
+        <span id="AwardNameError" style="display:none;color:red;">Please enter a valid Name of Award.</span>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="col-form-label pt-0">Fellowship/Financial Support Status : <label
+            style="color: red;">*</label></label>
+        <div class="col-sm-10">
+          <div class="form-label">
+            <input class="form-check-input" type="radio" name="fstatus" id="gridRadios1" value="National" required>
+            <label class="form-check-label" for="gridRadios1">
+              National
+            </label>
+          </div>
+          <div class="form-label">
+            <input class="form-check-input" type="radio" name="fstatus" id="gridRadios2" value="International">
+            <label class="form-check-label" for="gridRadios2">
+              International
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="col-form-label col-sm-2 pt-0">Type :</label>
+        <div class="col-sm-7">
+          <div class="form-label">
+            <input class="form-check-input" type="checkbox" name="studies[]" id="checkbox1" value="For Advanced Studies">
+            <label class="form-check-label" for="checkbox1">
+              For Advanced Studies
+            </label>
+          </div>
+          <div class="form-label">
+            <input class="form-check-input" type="checkbox" name="studies[]" id="checkbox2" value="For Research">
+            <label class="form-check-label" for="checkbox2">
+              For Research
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label ><b> Upload Sanction Letter : </b> </label>
+        <input type="file" class="form-control" id="syllabidoc" name="syllabiDoc" onchange="validateSyllabiDoc()" accept=".pdf">
+        <span id="syllabidocError" style="color:red;"></span>
+    </div>
+      
+        <div class="col-sm-4 ">
+                <label for="yes-no">Have you received travel grant :</label><br>
+                <input class="form-check-input ml-2" type="radio" name="yes-no" id="yes" value="yes" onclick="showTextBox()"> <label class="form-check-label  ml-5" for="gridRadios6">Yes</label> <br>
+                <input class="form-check-input  ml-2" type="radio" name="yes-no" id="no" value="no" onclick="hideTextBox()"> <label class="form-check-label ml-5" for="gridRadios6">No</label><br>
+            </div>
+            <script>
+                function validateAwardYear() {
+                  const yearInput = document.getElementById("YearOfAward");
+                  let yearValue = yearInput.value.trim();
+              
+                  // Remove any non-numeric characters
+                  yearValue = yearValue.replace(/[^\d]/g, "");
+              
+                  // Update the input field value with the cleaned numeric value
+                  yearInput.value = yearValue;
+              
+                  // Check if the input is a valid numeric value (year)
+                  if (yearValue === "" || isNaN(yearValue)) {
+                    document.getElementById("AwardingYearError").style.display = "inline";
+                  } else {
+                    document.getElementById("AwardingYearError").style.display = "none";
+                  }
+                }
+              </script>
+            <script>
+                function showTextBox() {
+                    document.getElementById("text-input").style.display = "block";
+                
+                }
+                
+                function hideTextBox() {
+                    document.getElementById("text-input").style.display = "none";
+                  
+                }
+            </script>
+            <script>
+                function validateAgency(event) {
+                  // Get the character code from the event
+                  var charCode = event.which ? event.which : event.keyCode;
+              
+                  // Convert the character code to the corresponding character
+                  var char = String.fromCharCode(charCode);
+              
+                  // Regular expression to check if the character is a letter
+                  var letterPattern = /^[A-Za-z ]+$/;
+              
+                  // Allow the input if it's a letter or if it's a special control key (e.g., backspace, delete)
+                  if (char.match(letterPattern) || charCode < 32) {
+                    // Hide the error message since the input is valid
+                    document.getElementById("AwardingAgencyError").style.display = "none";
+                    return true;
+                  } else {
+                    // Display the error message if the input is not a letter
+                    document.getElementById("AwardingAgencyError").style.display = "inline";
+                    return false;
+                  }
+                }
+              </script>
+              
+            <script>function validateSyllabiDoc() {
+                const file = event.target.files[0];
+                const errorElement = document.getElementById('syllabidocError');
+                if (!file.type.match('pdf')) {
+                    errorElement.textContent = 'File is not a PDF.';
+                    event.target.value = ''; // Clear the file input
+                    return;
+                }
+                if (file.size > 500 * 1024) {
+                    errorElement.textContent = 'File is too big. Maximum size is 500 KB.';
+                    event.target.value = ''; // Clear the file input
+                    return;
+                }
+                // If the file is valid, clear the error message
+                errorElement.textContent = '';
+            }</script>
+            <div class="col-md-4" id="text-input" style="display:none;">
+                <label class="form-label">Amount : <label style="color: red;">* (in INR)</label></label>
+                <input id="amount" type="number" class="form-control" name="amount" min='0'>
+                <span id="amountError" style="display:none;color:red;">Please enter a valid Amount.</span>
+            </div>
+
+
+      <div class="col-12 text-center">
+        <input type="submit" class="btn btn-outline-primary" value="Submit">
+      </div>
+    </form>
+  </div>
+  <?= $this->endSection();?>
