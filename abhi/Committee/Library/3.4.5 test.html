@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <br>
+	<title>3.4.5</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("#datepicker").datepicker({
+             format: "yyyy",
+             viewMode: "years", 
+             minViewMode: "years",
+             autoclose:true
+          });   
+        })
+    </script>
+	
+</head>
+<body>
+
+    <div class="container-fluid border border-info-subtle my-4">
+        <h1>Bibliometrics of the publications based on average Citation index in Scopus/ Web of Science (3.4.5) :</h1>
+        <form class="row g-3 my-3">
+
+
+    <div class="col-md-2">
+        <label class="col-form-label pt-0">Academic Year : <label
+            style="color: red;">*</label></label>
+        <div class="container px-4">
+          <div class="row gx-5">
+
+            <div class="form-check mt-4">
+              <input class="form-check-input" type="checkbox" value="DST-FIST" name="flexRadioDefault" id="checkbox1"
+                onclick="show()">
+              <label class="form-check-label">
+                2022-23
+              </label>
+            </div>
+
+
+            <div class="form-check mt-5">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox2" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault2">
+                2023-24
+              </label>
+            </div>
+            
+
+            <div class="form-check mt-4">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox3" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault3">
+                2024-25
+              </label>
+            </div>
+
+            <div class="form-check mt-5">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox4" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault4">
+                2025-26
+              </label>
+            </div>
+
+            <div class="form-check mt-4">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox5" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault5">
+                2026-27
+              </label>
+            </div>
+
+            <div class="form-check mt-5">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox6" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault6">
+                2027-28
+              </label>
+            </div>
+
+            <div class="form-check mt-4">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="checkbox7" onclick="show()">
+              <label class="form-check-label" for="flexRadioDefault6">
+                2028-29
+              </label><input type="text" class="form-control" id="other" name="" required style="display:none;">
+            </div>
+            <!-- <div>
+              <input type="text" class="form-control" id="other" name="" required style="display:none;">
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-9">
+        <div class="container px-4">
+          <div class="row gx-3">
+
+
+            <div class="col">
+              <label class="form-label">Total number of Citations in Scopus : <label style="color: red;">*</label></label>
+              <input type="number" class="form-control" name="DST-FIST" accept=".pdf" id="Fupload1" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="UGC-SAP/CAS" accept=".pdf" id="Fupload2" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="DPE" accept=".pdf" id="Fupload3" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="DBT" accept=".pdf" id="Fupload4" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="ICSSR" accept=".pdf" id="Fupload5" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="AICTE" accept=".pdf" id="Fupload6" disabled="true">
+              <br>
+              <input type="number" class="form-control" name="" accept=".pdf" id="Fupload7" disabled="true">
+            </div>
+
+            <div class="col">
+                <label class="form-label">Total number of Citations in Web of Science :<label style="color: red;">*</label></label>
+               
+                <input type="number" class="form-control" name="DST-FIST" accept=".pdf" id="Aupload1" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="UGC-SAP/CAS" accept=".pdf" id="Aupload2" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DPE" accept=".pdf" id="Aupload3" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DBT" accept=".pdf" id="Aupload4" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="ICSSR" accept=".pdf" id="Aupload5" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="AICTE" accept=".pdf" id="Aupload6" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="" accept=".pdf" id="Aupload7" disabled="true">
+            </div>
+
+            <div class="col">
+                <label class="form-label">Total number of Publications in Scopus :<label style="color: red;">*</label></label>
+               
+                <input type="number" class="form-control" name="DST-FIST" accept=".pdf" id="Aupload1" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="UGC-SAP/CAS" accept=".pdf" id="Aupload2" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DPE" accept=".pdf" id="Aupload3" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DBT" accept=".pdf" id="Aupload4" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="ICSSR" accept=".pdf" id="Aupload5" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="AICTE" accept=".pdf" id="Aupload6" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="" accept=".pdf" id="Aupload7" disabled="true">
+            </div>
+
+
+            <div class="col">
+                <label class="form-label">Total number of Publications in Web of Science :<label style="color: red;">*</label></label>
+               
+                <input type="number" class="form-control" name="DST-FIST" accept=".pdf" id="Aupload1" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="UGC-SAP/CAS" accept=".pdf" id="Aupload2" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DPE" accept=".pdf" id="Aupload3" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="DBT" accept=".pdf" id="Aupload4" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="ICSSR" accept=".pdf" id="Aupload5" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="AICTE" accept=".pdf" id="Aupload6" disabled="true">
+                <br>
+                <input type="number" class="form-control" name="" accept=".pdf" id="Aupload7" disabled="true">
+            </div>            
+
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function show() {
+          var checkBox1 = document.getElementById("checkbox1");
+          var checkBox2 = document.getElementById("checkbox2");
+          var checkBox3 = document.getElementById("checkbox3");
+          var checkBox4 = document.getElementById("checkbox4");
+          var checkBox5 = document.getElementById("checkbox5");
+          var checkBox6 = document.getElementById("checkbox6");
+          var checkBox7 = document.getElementById("checkbox7");
+
+          var text1 = document.getElementById("Fupload1");
+          var text2 = document.getElementById("Fupload2");
+          var text3 = document.getElementById("Fupload3");
+          var text4 = document.getElementById("Fupload4");
+          var text5 = document.getElementById("Fupload5");
+          var text6 = document.getElementById("Fupload6");
+          var text7 = document.getElementById("Fupload7");
+
+          var file1 = document.getElementById("Aupload1");
+          var file2 = document.getElementById("Aupload2");
+          var file3 = document.getElementById("Aupload3");
+          var file4 = document.getElementById("Aupload4");
+          var file5 = document.getElementById("Aupload5");
+          var file6 = document.getElementById("Aupload6");
+          var file7 = document.getElementById("Aupload7");
+          if (checkBox1.checked) {
+            text1.removeAttribute("disabled"); 
+            file1.removeAttribute("disabled");
+          } else {
+            text1.disabled="true";
+            file1.disabled="true";
+          }
+
+          if (checkBox2.checked) {
+            text2.removeAttribute("disabled"); 
+            file2.removeAttribute("disabled"); 
+          } else {
+            text2.disabled="true";
+            file2.disabled="true";
+          }
+
+          if (checkBox3.checked) {
+            text3.removeAttribute("disabled"); 
+            file3.removeAttribute("disabled"); 
+          } else {
+            text3.disabled="true";
+            file3.disabled="true";
+          }
+
+          if (checkBox4.checked) {
+            text4.removeAttribute("disabled"); 
+            file4.removeAttribute("disabled"); 
+          } else {
+            text4.disabled="true";
+            file4.disabled="true";
+          }
+
+          if (checkBox5.checked) {
+            text5.removeAttribute("disabled"); 
+            file5.removeAttribute("disabled"); 
+          } else {
+            text5.disabled="true";
+            file5.disabled="true";
+          }
+
+          if (checkBox6.checked) {
+            text6.removeAttribute("disabled"); 
+            file6.removeAttribute("disabled"); 
+          } else {
+            text6.disabled="true";
+            file6.disabled="true";
+          }
+
+          if (checkBox7.checked) {
+            text7.removeAttribute("disabled"); 
+            file7.removeAttribute("disabled"); 
+          } else {
+            text7.disabled="true";
+            file7.disabled="true";
+          }
+        }
+      </script>
+
+      <div class="col-md-5">
+        <label for="">Average Citation index in Scopus/ Web of Science :</label><br/>
+        <input type="text" class="form-control">
+      </div>
+      <br>
+
+      <div class="col-12">
+        <input type="submit" class="btn btn-outline-warning" value="Submit">
+      </div>
+      
+        </form>
+    </div>
+</body>
+</html>
